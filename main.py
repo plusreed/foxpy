@@ -6,7 +6,7 @@ import asyncio
 print("Just a moment, Fox is initializing...")
 fox = discord.Client()
 
-@client.event
+@fox.event
 async def on_ready():
     print('Fox is ready!')
     print('Fox username: ' + fox.user.name)
