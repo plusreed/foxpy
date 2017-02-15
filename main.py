@@ -1,0 +1,15 @@
+# Fox, rewritten in Python for literally no reason at all.
+
+import discord
+import asyncio
+
+print("Just a moment, Fox is initializing...")
+fox = discord.Client()
+
+@client.event
+async def on_ready():
+    print('Fox is ready!')
+    print('Fox username: ' + fox.user.name)
+    print('Fox user ID: ' + fox.user.id)
+    print('------')
+
