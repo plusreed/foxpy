@@ -4,12 +4,14 @@
 
 import plugins
 import plugins.core
+import sys
 from util import Util
 util = Util()
 
 
 if __name__ == "__main__":
     print(util.current_file() + " is the core plugin system for Fox. It cannot be executed directly.")
+    sys.exit()
 
 
 class FoxPlug:
