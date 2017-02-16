@@ -1,4 +1,4 @@
-# add.py - CORE
+# add.py
 # Fox plugin for adding numbers together
 
 
