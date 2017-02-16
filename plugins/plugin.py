@@ -4,9 +4,15 @@
 
 import plugins
 import plugins.core
+from util import Util
+util = Util()
 
 
-class fplg:
+if __name__ == "__main__":
+    print(util.current_file() + " is the core plugin system for Fox. It cannot be executed directly.")
+
+
+class FoxPlug:
     @staticmethod
     def plugin_error(level, message):
         if level == 0:  # Info
