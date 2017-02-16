@@ -10,7 +10,6 @@ import click
 
 @click.command()
 @click.option("--new-conf", prompt="New configuration name", help="Generate a new configuration file")
-
 def sanity(stage):
     # Sanity checks
     # We need to check the working directory for 'fox_config.json'
@@ -26,9 +25,10 @@ def sanity(stage):
 
 def welcome():
     """Welcome function for CLI"""
-    print("genconf.py")
-    print("ver 0.1, beta")
-    print("Please report bugs to https://github.com/plusreed/foxpy")
+    click.echo("genconf.py")
+    click.echo("ver 0.1, beta")
+    click.echo("Please report bugs to https://github.com/plusreed/foxpy")
     sanity()
+
 
 welcome()
