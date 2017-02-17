@@ -4,7 +4,7 @@
 import discord
 import asyncio
 import plugins
-import plugins.core
+import config
 
 
 print("Just a moment, Fox is initializing...")
@@ -18,3 +18,12 @@ async def on_ready():
     print('Fox user ID: ' + fox.user.id)
     print('------')
 
+
+@fox.event
+async def on_message(message):
+    if message.content.startswith("$ping"):
+        from plugins.core import ping
+        await fox.send_message(message.channel, ping.ping())
+
+
+fox.run(config.BOT_TOKEN)
