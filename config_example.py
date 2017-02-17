@@ -3,4 +3,4 @@
 # Configuration for your bot.
 
 BOT_ID = 0
-BOT_SECRET = "TOKEN_HERE" # "Client Secret" on the app details page
+BOT_TOKEN = "TOKEN_HERE"  # Token under "APP BOT USER" on app details page

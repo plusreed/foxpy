@@ -13,6 +13,7 @@ fox = discord.Client()
 
 @fox.event
 async def on_ready():
+    print('------')
     print('Fox is ready!')
     print('Fox username: ' + fox.user.name)
     print('Fox user ID: ' + fox.user.id)
