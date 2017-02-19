@@ -5,7 +5,13 @@ import discord
 import asyncio
 import plugins
 import config
+import logging
 
+logger = logging.getLogger('discord')
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename='fox.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 print("Just a moment, Fox is initializing...")
 fox = discord.Client()
