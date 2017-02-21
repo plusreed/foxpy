@@ -3,7 +3,7 @@
 
 
 import sys
-
+from main import fox
 from util import Util
 
 util = Util()
@@ -38,3 +38,12 @@ class FoxPlug:
                 print("[" + util.current_file() + "]: " + message)
         else:
             return
+
+    def register_plugin(plg_name, plg_version, plg_author, plg_cmd, func):
+        @fox.event
+        async def on_message(message):
+            if message.content.startswith(plg_cmd):
+                name = plg_name
+                ver = plg_version
+                author = plg_author
+                func
