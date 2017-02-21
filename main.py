@@ -78,6 +78,8 @@ async def on_message(a_message):
                 return
             else:
                 return
+        else:
+            return
 
 
 fox.run(config.BOT_TOKEN)
