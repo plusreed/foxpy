@@ -72,6 +72,7 @@ async def on_message(a_message):
             if config.DEBUG:
                 str1 = ', '.join(str(e) for e in config.ADMINS)
                 await fox.send_message(a_message.channel, "**[debug]**: current admin ids: `" + str1 + "`")
+                await fox.send_message(a_message.channel, "**[debug]**: message content: " + a_message.content)
                 return
             else:
                 return
