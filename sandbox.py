@@ -8,6 +8,7 @@ import plugins.plugin
 import plugins.core
 import mmap
 
+
 class PlgSandbox:
     NASandbox = {
         # This is an array of SHA256 hashes in which the sandbox will not apply to.
