@@ -51,7 +51,6 @@ async def on_message(message):
 
 @fox.event
 async def on_message(a_message):
-
     # We need to check the ID of the user who sent the message
     if a_message.author.id in config.ADMINS:
         if a_message.content.startswith("$%shutdown"):
