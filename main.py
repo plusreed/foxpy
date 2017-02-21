@@ -1,13 +1,12 @@
 # Fox, rewritten in Python for literally no reason at all.
 
 
-import discord
-import asyncio
-import plugins
-import config
 import logging
 import os
-import sys
+
+import discord
+
+import config
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -37,12 +36,12 @@ async def on_ready():
 @fox.event
 async def on_message(message):
     if message.content.startswith("$ping"):
-        from plugins.core import ping
+        from plugins import ping
         await fox.send_message(message.channel, ping.ping())
 
     # TODO: find some better way to do this because this can get ugly real fast
     if message.content.startswith("$myavatar") or message.content.startswith("$myavi"):
-            from plugins.core import avatar  # Not a plugin yet
+            from plugins import avatar  # Not a plugin yet
             avatar.get_avatar(message.author.default_avatar_url)
 
     if message.content.startswith("$shutdown"):

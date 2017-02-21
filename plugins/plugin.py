@@ -2,10 +2,10 @@
 # The core to the plugin system
 
 
-import plugins
-import plugins.core
 import sys
+
 from util import Util
+
 util = Util()
 
 
@@ -24,7 +24,16 @@ class FoxPlug:
         elif level == 2:  # Error
             print("[fplg.ERR]: " + message)
         elif level == 3:  # Plugin being executed directly
-            # message = None
+            del message
             print("[fplg.ERR]: " + util.current_file() + " is a Fox plugin. It cannot be executed directly.")
         elif level > 3:  # Level is bigger than 2
             print("[fplg.ERR]: fplg.plugin_error only uses error severity levels 0-3.")
+
+    def check_scriptexec(message):
+        if __name__ == "__main__":
+            if message is None:
+                print(util.current_file() + " is a Fox plugin. It cannot be executed directly.")
+            else:
+                print("[" + util.current_file() + "]: " + message)
+        else:
+            return

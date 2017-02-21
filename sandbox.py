@@ -1,11 +1,6 @@
 # sandbox.py
 # Fox's plugin sandbox
 
-import os
-import sys
-import plugins
-import plugins.plugin
-import plugins.core
 import mmap
 
 
