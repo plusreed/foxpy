@@ -51,8 +51,11 @@ async def on_message(message):
 
 @fox.event
 async def on_message(a_message):
+
     # We need to check the ID of the user who sent the message
     if a_message.author.id in config.ADMINS:
+        # TODO: find some less ugly way to handle this
+
         if a_message.content.startswith("$%shutdown"):
             from plugins.admin import shutdown
             shutdown.shutdown()
@@ -63,7 +66,11 @@ async def on_message(a_message):
             return
 
     else:
-        if a_message.content.startswith("$%"):
+        admin_cmds = [
+            "$%shutdown",
+            "$%admin"
+        ]
+        if a_message.content.startswith("$%") and a_message.content in admin_cmds:
             await fox.send_message(a_message.channel, "You don't have permission to use this command.")
             if config.DEBUG:
                 str1 = ', '.join(str(e) for e in config.ADMINS)
