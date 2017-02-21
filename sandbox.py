@@ -15,8 +15,8 @@ class PlgSandbox:
     }
 
     def check_sysexit(self):
-        with open(self, 'rb', 0) as file:
-            mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as check:
+        with open(self, 'rb', 0) as file, \
+                mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as check:
             if check.find(b'sys.exit') != -1:
                 print("[fplg.sandbox] Plugin " + self + " attempted to use sys.exit and was blocked")
 
