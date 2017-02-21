@@ -54,8 +54,6 @@ async def on_message(a_message):
 
     # We need to check the ID of the user who sent the message
     if a_message.author.id in config.ADMINS:
-        # TODO: find some less ugly way to handle this
-
         if a_message.content.startswith("$%shutdown"):
             from plugins.admin import shutdown
             shutdown.shutdown()
