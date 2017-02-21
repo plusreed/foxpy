@@ -25,7 +25,8 @@ class FoxPlug:
             print("[fplg.ERR]: " + message)
         elif level == 3:  # Plugin being executed directly
             del message
-            print("[fplg.ERR]: " + util.current_file() + " is a Fox plugin. It cannot be executed directly.")
+            # print("[fplg.ERR]: " + util.current_file() + " is a Fox plugin. It cannot be executed directly.")
+            return "WARNING: FoxPlug.plugin_error(3) is deprecated and shouldn't be used. Please use FoxPlug.check_scriptexec()."
         elif level > 3:  # Level is bigger than 2
             print("[fplg.ERR]: fplg.plugin_error only uses error severity levels 0-3.")
 
