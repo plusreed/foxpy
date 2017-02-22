@@ -7,6 +7,7 @@ import logging
 import traceback
 import sys
 from collections import Counter
+import config
 
 description = """
 I'm Fox, a multi-purpose and modular Discord bot.
@@ -74,3 +75,23 @@ async def on_message(message):
         return
 
     await fox.process_commands(message)
+
+
+if __name__ == '__main__':
+    if any('debug' in arg.lower() for arg in sys.argv):
+        print("Fox is running in debug mode. The command prefix is now '^^'.")
+        fox.command_prefix = '^^'
+
+    fox.client_id = config.BOT_ID
+    fox.commands_used = Counter()
+    for plugin in init_cogs:
+        try:
+            fox.load_extention(plugin)
+        except Exception as e:
+            print('Error: failed to load plugin {}\n{}: {}'.format(plugin, type(e).__name__, e))
+
+    fox.run(config.BOT_TOKEN)
+    handlers = log.handlers[:]
+    for hdlr in handlers:
+        hdlr.close()
+        log.removeHandler(hdlr)
