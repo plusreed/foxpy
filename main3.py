@@ -1,7 +1,7 @@
 from discord.ext import commands
 import discord
 import datetime, re
-import json, asyncio
+import asyncio
 import copy
 import logging
 import traceback
@@ -52,3 +52,25 @@ async def on_ready():
     if not hasattr(fox, 'uptime'):
         fox.uptime = datetime.datetime.utcnow()
 
+@fox.event
+async def on_resumed():
+    print("Fox has resumed.")
+
+@fox.event
+async def on_command(command, ctx):
+    fox.commands_used[command.name] += 1
+    message = ctx.message
+    destination = None
+    if message.channel.is_private:
+        destination = 'Private Message'
+    else:
+        destination = '#{0.channel.name} ({0.server.name})'.format(message)
+
+    log.info('{0.timestamp}: {0.author.name} in {1}: {0.content}'.format(message, destination))
+
+@fox.event
+async def on_message(message):
+    if message.author.bot:
+        return
+
+    await fox.process_commands(message)
