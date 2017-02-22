@@ -3,10 +3,9 @@
 
 import logging
 import os
-
 import discord
-
 import config
+import plugins.admin
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -46,7 +45,14 @@ async def on_message(message):
 
     if message.content.startswith("$shutdown"):
             from.plugins.admin.shutdown import shutdown
-            shutdown.shutdown()
+            await fox.send_message(message.channel, "Shutting down.")
+            # shutdown.shutdown()
+            import sys
+            sys.exit()
+
+    if message.content.startswith("$%eval"):
+        from plugins.admin.eval import FoxEval
+        FoxEval.evalpy(message.content)
 
 
 @fox.event
