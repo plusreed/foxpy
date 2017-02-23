@@ -36,7 +36,7 @@ fox = commands.Bot(command_prefix=prefix, description=description, pm_help=None,
 @fox.event
 async def on_command_error(error, ctx)
     if isinstance(error, commands.NoPrivateMessage):
-        await fox.send_message(ctx.message.author, "Sorry, you can't use this command in private messages. :/")
+        await fox.send_message(ctx.message.author, "Sorry, you can't use this command in private messages.")
     elif isinstance(error, commands.DisabledCommand):
         await fox.send_message(ctx.message.author, 'Sorry, it looks like that command is disabled.')
     elif isinstance(error, commands.CommandInvokeError):
