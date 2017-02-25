@@ -3,12 +3,20 @@ import discord.utils
 import config
 
 
+def is_admin_check(message):
+    return message.author.id == config.ADMINS
+
+
 def is_owner_check(message):
     return message.author.id == config.OWNER_ID
 
 
 def is_owner():
     return commands.check(lambda ctx: is_owner_check(ctx.message))
+
+
+def is_admin():
+    return commands.check(lambda ctx: is_admin_check(ctx.message))
 
 # The permission system of the bot is based on a "just works" basis
 # You have permissions and the bot has permissions. If you meet the permissions
