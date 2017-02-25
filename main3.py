@@ -17,7 +17,7 @@ I'm Fox, a multi-purpose and modular Discord bot.
 init_cogs = [
     'plugins.admin.eval',
     'plugins.admin.shutdown',
-    'plugins.core.add',
+    'plugins.core.math',
     'plugins.core.ping',
 ]
 
