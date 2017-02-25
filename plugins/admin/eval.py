@@ -1,6 +1,3 @@
-# eval.py
-# Evaluate Python code
-
 from discord.ext import commands
 from plugins.utils import checks
 import discord
