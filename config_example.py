@@ -7,5 +7,8 @@ BOT_TOKEN = "TOKEN_HERE"  # Token under "APP BOT USER" on app details page
 ADMINS = {
     # These are people who can run administrative commands
 }
+OWNER_ID = {
+    # This is here for plugins.utils.checks
+}
 DEBUG = False
 
