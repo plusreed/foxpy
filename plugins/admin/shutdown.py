@@ -15,7 +15,7 @@ class Shutdown:
         # We need to log out of Fox first.
         await self.bot.logout()
         if shutdown_id is None:
-            print("Logged out of Fox. See ya! (Shutdown ID: 0)")
+            print("Logged out of Fox. See ya! (No shutdown_id was provided, defaulted to 0)")
             sys.exit(0)
         else:
             print("Logged out of Fox. See ya! (Shutdown ID: " + str(shutdown_id) + ")")
