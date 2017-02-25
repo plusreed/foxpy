@@ -12,7 +12,7 @@ class Eval:
         self.bot = bot
 
     @commands.command(pass_context=True, hidden=True)
-    @checks.is_owner()
+    @checks.is_admin()
     async def eval(self, ctx, *, code: str):
         """Runs code through eval()."""
         code = code.strip('` ')
