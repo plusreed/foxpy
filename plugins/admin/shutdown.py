@@ -1,22 +1,26 @@
-# shutdown.py
-# Shuts the bot down.
-
+from discord.ext import commands
+from plugins.utils import checks
+import discord
 import sys
-from util import Util
-from plugins.plugin import FoxPlug
-
-util = Util()
-FoxPlug = FoxPlug()
 
 
-if __name__ == "__main__":
-    print(util.current_file() + " is a Fox plugin. It cannot be executed directly.")
-    sys.exit()
+class Shutdown:
+    """Shutdown the Discord bot."""
+    def __init__(self, bot):
+        self.bot = bot
+
+    @commands.command(pass_context=True, hidden=True)
+    @checks.is_owner()
+    async def shutdown(self, ctx, *, shutdown_id: int):
+        # We need to log out of Fox first.
+        await self.bot.logout()
+        if shutdown_id is None:
+            print("Logged out of Fox. See ya! (Shutdown ID: 0)")
+            sys.exit(0)
+        else:
+            print("Logged out of Fox. See ya! (Shutdown ID: " + str(shutdown_id) + ")")
+            sys.exit(shutdown_id)
 
 
-class shutdown:
-    """Admin class: shutdown"""
-    def shutdown(self):
-        """Forcibly shuts down Discord bot"""
-        sys.exit(self)
-
+def setup(bot):
+    bot.add_cog(Shutdown(bot))

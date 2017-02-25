@@ -13,7 +13,7 @@ class Eval:
 
     @commands.command(pass_context=True, hidden=True)
     @checks.is_owner()
-    async def eval(self, ctx, *, code : str):
+    async def eval(self, ctx, *, code: str):
         """Runs code through eval()."""
         code = code.strip('` ')
         py = '```py\n{}\n```'
