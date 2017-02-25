@@ -1,13 +1,12 @@
 # eval.py
 # Evaluate Python code
 
-from main import fox
-import asyncio
-from util import Util
-from plugins.plugin import FoxPlug
-
-util = Util()
-FoxPlug = FoxPlug()
+from discord.ext import commands
+from plugins.utils import checks
+import discord
+import inspect
+import datetime
+from collections import Counter
 
 
 class FoxEval:
@@ -47,3 +46,58 @@ async def on_message(a_message):
 
 plg_cmd = "$%eval"
 """
+
+
+class Eval:
+    """Evaluator command for admins."""
+    def __init__(self, bot):
+        self.bot = bot
+
+    @commands.command(pass_context=True, hidden=True)
+    @checks.is_owner()
+    async def eval(self, ctx, *, code : str):
+        """Runs code through eval()."""
+        code = code.strip('` ')
+        py = '```py\n{}\n```'
+        result = None
+
+        env = {
+            # sooner or later.
+        }
+
+        try:
+            result = eval(code)
+            if inspect.isawaitable(result):
+                result = await result
+        except Exception as e:
+            # Make a fancy looking embed
+            err_em = self.bot.Embed(
+                title="Hit a snag!",
+                description="I tried doing that but encountered an error.\n" + type(e).__name__ + ": " + str(e),
+                colour=0x910000
+            )
+
+            err_em.set_author(
+                name="Fox",
+                icon_url=self.bot.user.default_user_url
+            )
+
+            await self.bot.say(embed=err_em)
+            return
+
+        result_em = self.bot.Embed(
+            title="Results",
+            description="Here's the results!\n" + py.format(result),
+            colour=0x00AF19
+        )
+
+        result_em.set_author(
+            name="Fox",
+            icon_url=self.bot.user.default_user_url
+        )
+
+        await self.bot.say(embed=result_em)
+
+
+def setup(bot):
+    bot.add_cog(Eval(bot))
