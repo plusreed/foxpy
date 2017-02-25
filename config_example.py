@@ -13,4 +13,3 @@ OWNER_ID = {
     123123123123123
 }
 DEBUG = False  # Enables more verbose logging
-
