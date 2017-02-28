@@ -13,7 +13,7 @@ class VoiceHandler:
     def __init__(self, bot):
         self.bot = bot
 
-    async def joinchannel(self, id: int, name: str, message):
+    async def joinchannel(self, message):
         if message.author.voice.voice_channel is None:
             await self.bot.say("Sorry, I couldn't do that. You're not in a voice channel.")
             await self.bot.say("I can join a voice channel in this server if you append the `joinchannel` command with"
