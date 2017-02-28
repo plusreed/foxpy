@@ -19,6 +19,7 @@ init_cogs = [
     'plugins.admin.shutdown',
     'plugins.core.math',
     'plugins.core.ping',
+    'plugins.music.voice',
 ]
 
 dc_log = logging.getLogger(discord)
