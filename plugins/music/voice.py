@@ -34,6 +34,13 @@ class VoiceHandler:
                 return
             finally:
                 await self.bot.say("Joined the voice channel! Hello, **" + discord.VoiceClient.channel.name + "**!")
+                if not discord.opus.is_loaded():
+                    discord.opus.load_opus()
+                    import config
+                    if config.DEBUG:
+                        await self.bot.say("Opus loaded")
+                    else:
+                        return
 
         """
         # This is commented out because I don't know if it'll work.
