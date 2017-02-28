@@ -29,9 +29,6 @@ class VoiceHandler:
             except discord.ClientException:
                 await self.bot.say("Sorry, it looks like I'm already connected to a voice channel.")
                 return
-            except discord.opus.OpusNotLoaded:
-                await self.bot.say("Whoops, `libopus` isn't loaded.")
-                return
             finally:
                 await self.bot.say("Joined the voice channel! Hello, **" + discord.VoiceClient.channel.name + "**!")
                 if not discord.opus.is_loaded():
