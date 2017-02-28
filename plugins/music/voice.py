@@ -5,6 +5,7 @@ import discord
 import asyncio
 from discord.ext import commands
 from plugins.utils import checks
+import youtube_dl
 
 
 class VoiceHandler:
