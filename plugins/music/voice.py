@@ -61,3 +61,6 @@ class VoiceHandler:
                 discord.opus.load_opus()
             """
 
+
+def setup(bot):
+    bot.add_cog(VoiceHandler(bot))
