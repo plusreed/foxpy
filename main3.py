@@ -19,6 +19,7 @@ init_cogs = [
     'plugins.admin.shutdown',
     'plugins.core.math',
     'plugins.core.ping',
+    'plugins.core.lastfm',
     'plugins.music.voice',
 ]
 
