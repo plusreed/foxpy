@@ -36,7 +36,10 @@ class VoiceHandler:
                     discord.opus.load_opus()
                     import config
                     if config.DEBUG:
-                        await self.bot.say("Opus loaded")
+                        if discord.opus.is_loaded():
+                            await self.bot.say("Opus loaded")
+                        else:
+                            return
                     else:
                         return
 
