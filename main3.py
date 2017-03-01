@@ -67,7 +67,6 @@ async def on_resumed():
 async def on_command(command, ctx):
     fox.commands_used[command.name] += 1
     message = ctx.message
-    destination = None
     if message.channel.is_private:
         destination = 'Private Message'
     else:
