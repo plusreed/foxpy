@@ -30,6 +30,8 @@ class LastFm:
             await self.bot.say("**lfm**: p status code was `{0}`".format(p.status_code))
             await self.bot.say("**lfm**: p2 status code was `{0}`".format(p2.status_code))
         else:
+            u_details = json.load(p.content)
+            u_playing = json.load(p2.content)
             embed = discord.Embed(title="Last.fm Profile", colour=discord.Colour(0x7c998c),
                                   url="https://last.fm/user/plusreed", description="Profile Description",
                                   timestamp=datetime.datetime.utcfromtimestamp(1488331811))
