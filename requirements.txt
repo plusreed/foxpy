@@ -1,0 +1,5 @@
+pylast
+requests
+discord.py
+youtube_dl
+click
