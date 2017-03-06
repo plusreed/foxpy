@@ -31,8 +31,8 @@ class LastFm:
             await self.bot.say("**lfm**: p2 status code was `{0}`".format(p2.status_code))
             await self.bot.say("**lfm**: decoding json, please wait...")
         else:
-            u_details = p.content
-            u_playing = p2.content
+            u_details = json.load(p.content)
+            u_playing = json.load(p2.content)
 
             if config.DEBUG:
                 await self.bot.say("**lfm**: parsed json successfully.")
