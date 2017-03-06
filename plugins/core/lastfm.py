@@ -49,3 +49,7 @@ class LastFm:
                 #                value="1. asdf\n2. asdasd\n3. asfdsfsd\n4. sdfsf\n5. dsfdsfds")
 
                 await self.bot.say(content="Here's the details for that Last.fm user:", embed=embed)
+
+
+def setup(bot):
+    bot.add_cog(LastFm(bot))
