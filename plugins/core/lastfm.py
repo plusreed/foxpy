@@ -6,6 +6,7 @@ import config
 import json
 import requests
 import datetime
+from box import Box
 
 
 class LastFm:
@@ -31,8 +32,12 @@ class LastFm:
             await self.bot.say("**lfm**: p2 status code was `{0}`".format(p2.status_code))
             await self.bot.say("**lfm**: decoding json, please wait...")
         else:
-            u_details = json.load(p.content)
-            u_playing = json.load(p2.content)
+            u_details = json.load(p.content)[0]
+            u_playing = json.load(p2.content)[0]
+
+            # Convert json dict to Box
+            ud = Box(u_details)
+            up = Box(u_playing)
 
             if config.DEBUG:
                 await self.bot.say("**lfm**: parsed json successfully.")
