@@ -4,3 +4,4 @@ discord.py
 youtube_dl
 click
 flask
+python-box
