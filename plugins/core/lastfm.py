@@ -30,7 +30,7 @@ class LastFm:
         if config.DEBUG:
             await self.bot.say("**lfm**: p status code was `{0}`".format(p.status_code))
             await self.bot.say("**lfm**: p2 status code was `{0}`".format(p2.status_code))
-            await self.bot.say("**lfm**: decoding json, please wait...")
+            await self.bot.say("**lfm**: parsing json to box")
         else:
             u_details = json.load(p.content)[0]
             u_playing = json.load(p2.content)[0]
@@ -40,7 +40,7 @@ class LastFm:
             up = Box(u_playing)
 
             if config.DEBUG:
-                await self.bot.say("**lfm**: parsed json successfully.")
+                await self.bot.say("**lfm**: done!")
             else:
                 embed = discord.Embed(title="Last.fm Profile", colour=discord.Colour(0x7c998c),
                                       url=u_details['user']['url'], timestamp=datetime.datetime.utcnow())
