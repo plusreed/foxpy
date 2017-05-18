@@ -23,7 +23,7 @@ init_cogs = [
     'plugins.music.voice',
 ]
 
-dc_log = logging.getLogger(discord)
+dc_log = logging.getLogger('discord')
 dc_log.setLevel(logging.DEBUG)
 log = logging.getLogger()
 log.setLevel(logging.INFO)
