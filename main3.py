@@ -92,7 +92,7 @@ if __name__ == '__main__':
     fox.commands_used = Counter()
     for plugin in init_cogs:
         try:
-            fox.load_extention(plugin)
+            fox.load_extension(plugin)
         except Exception as e:
             print('Error: failed to load plugin {}\n{}: {}'.format(plugin, type(e).__name__, e))
 
