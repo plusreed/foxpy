@@ -3,7 +3,3 @@ machine:
     - cd /opt/circleci/.pyenv; git pull                                                                                                                                  
   python:                                                                                                                                                                
     version: 3.6.0
-
-dependencies:
-  override:
-    pip install -U pytest
