@@ -5,5 +5,5 @@ machine:
     version: 3.6.0
 
 test:
-  override:
+  pre:
     pytest main3.py
