@@ -6,7 +6,7 @@ this bot is in an **alpha** state. i highly encourage you to **not** base your b
 ### usage <br />
 *(yes, i know. this isn't that detailed. feel free to open a pr with changes and explain it further if you'd like.)* 
 <br />
-first, fill in `config_example.py` with the necessary keys. then, rename `config_example.py` to `config.py`
+first, fill in `config_example.py` with the necessary keys (bot token, admins, owner, etc) then, rename `config_example.py` to `config.py`
 (not doing this will result in the bot printing out an error.)
 <br />
 then, to start the bot, make sure you're running python 3.5+ (you can check this by running `python -V`) and that you
