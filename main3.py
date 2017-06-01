@@ -43,9 +43,9 @@ async def on_command_error(error, ctx):
     elif isinstance(error, commands.DisabledCommand):
         await fox.send_message(ctx.message.author, 'Sorry, it looks like that command is disabled.')
     elif isinstance(error, commands.CommandInvokeError):
-        print('In {0.command.qualified_name}:'.format(ctx), file=sys.stderr)
+        print('In {0.command.qualified_name}:'.format(ctx))
         traceback.print_tb(error.original.__traceback__)
-        print('{0.__class__.__name__}: {0}'.format(error.original), file=sys.stderr)
+        print('{0.__class__.__name__}: {0}'.format(error.original))
 
 
 @fox.event
@@ -81,6 +81,11 @@ async def on_message(message):
         return
 
     await fox.process_commands(message)
+
+
+# @bot.command()
+# async def ping():
+#     await bot.say("pong")
 
 
 if __name__ == '__main__':
